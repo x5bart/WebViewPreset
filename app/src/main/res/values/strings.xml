@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WebViewPreset</string>
+    <string name="adress"><![CDATA[https://media.premierbetpartners.com/redirect.aspx?pid=2179&bid=1476]]></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
