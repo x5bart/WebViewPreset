@@ -2,6 +2,8 @@ package com.x5bart.webviewpreset
 
 import android.net.http.SslError
 import android.webkit.*
+import java.net.HttpCookie
+import java.net.URI
 
 
 class MyWebViewClient : WebViewClient() {
@@ -26,4 +28,18 @@ class MyWebViewClient : WebViewClient() {
     ) {
         handler.proceed()
     }
+
+    override fun onPageFinished(view: WebView?, url: String?) {
+        val cookieManager = java.net.CookieManager()
+        CookieManager.getInstance()
+            .getCookie(url)
+            ?.let {
+                val uri = URI(url)
+                HttpCookie.parse(it).forEach {
+                    cookieManager.cookieStore.add(uri, it)
+                }
+            }
+
     }
+
+}
